@@ -1,0 +1,8 @@
+{
+  "name": "AI DM Agent Experts",
+  "description": "High-converting landing page for an AI DM agent service tailored to personal brands.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
