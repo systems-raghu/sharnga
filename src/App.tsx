@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { LoadingFallback } from "./components/LoadingFallback";
@@ -17,23 +17,39 @@ const FAQ = React.lazy(() => import("./components/FAQ").then(m => ({ default: m.
 const Footer = React.lazy(() => import("./components/Footer").then(m => ({ default: m.Footer })));
 
 export default function App() {
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setShouldLoad(true);
+    } else {
+      const handleLoad = () => setShouldLoad(true);
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       <main>
         <Hero />
-        <Suspense fallback={<LoadingFallback />}>
-          <PainSection />
-          <WallOfLove />
-          <ValueProps />
-          <HowItWorks />
-          <Pricing />
-          <FAQ />
-        </Suspense>
+        {shouldLoad && (
+          <Suspense fallback={<LoadingFallback />}>
+            <PainSection />
+            <WallOfLove />
+            <ValueProps />
+            <HowItWorks />
+            <Pricing />
+            <FAQ />
+          </Suspense>
+        )}
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      {shouldLoad && (
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      )}
     </div>
   );
 }
