@@ -41,7 +41,7 @@ export function Hero() {
         {/* Sub-headline */}
         <BlurReveal delay={0.3}>
           <p className="text-lg sm:text-xl text-slate-100 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
-            Stop losing high-ticket clients in the chaos of your inbox. We build custom AI agents that diagnose needs, qualify leads, and secure bookings 24/7—without the sick days or overhead of a VA.
+            Stop losing high-ticket clients in the chaos of your inbox. Sharnga builds custom **IG DM agents** and AI appointment setters that diagnose needs, qualify leads, and secure bookings 24/7—without the sick days or overhead of a VA.
           </p>
         </BlurReveal>
 
