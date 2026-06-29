@@ -1,62 +1,68 @@
-import { GreenTexturedBackground } from "./GreenTexturedBackground";
 import { LetterReveal } from "./LetterReveal";
 import { BlurReveal } from "./BlurReveal";
-import { motion } from "motion/react";
 
 export function HowItWorks() {
   const steps = [
     {
-      number: "01",
-      title: "The Audit & Extraction",
-      description: "We analyze your current DM flow, winning sales conversations, and brand voice. We extract the exact DNA of how you speak and sell."
+      n: "01",
+      title: "Listen",
+      body: "Agent watches every DM, story reply, comment and post tag in real time — no message slips through.",
+      detail: "@ava.rivers · DM received 2s ago",
     },
     {
-      number: "02",
-      title: "The Prescription",
-      description: "We engineer a custom AI agent tailored strictly to your offers. It is trained on your FAQs, objection handling, and qualification criteria."
+      n: "02",
+      title: "Engage in your voice",
+      body: "Trained on 100s of your past DMs so replies sound like you — slang, emojis, line breaks and all.",
+      detail: "Drafting reply · matching tone…",
     },
     {
-      number: "03",
-      title: "Seamless Integration",
-      description: "We deploy the agent quietly into your Instagram. No technical headaches for you. It begins fielding messages and routing qualified leads to your calendar instantly."
-    }
+      n: "03",
+      title: "Qualify",
+      body: "Asks the right discovery questions, scores intent, and filters out tire-kickers before they reach you.",
+      detail: "Intent score: 8.4 / 10 · HOT",
+    },
+    {
+      n: "04",
+      title: "Book",
+      body: "Drops your Calendly, holds the slot, sends reminders. Hot leads land straight on your calendar.",
+      detail: "Calendly · Thu Jul 18 · 2:00 PM ✓",
+    },
   ];
 
   return (
-    <section className="py-24 m-2 sm:m-4 rounded-[2rem] sm:rounded-[3rem] overflow-hidden relative">
-      <GreenTexturedBackground />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-serif text-4xl sm:text-5xl text-white mb-6">
-            <LetterReveal>A Frictionless Integration</LetterReveal>
+    <section id="how" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16">
+          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
+            How it works
+          </div>
+          <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
+            <LetterReveal>From DM to booked call. In 4 steps.</LetterReveal>
           </h2>
           <BlurReveal delay={0.2}>
-            <p className="text-lg text-white/90">
-              We handle the heavy lifting. You just show up to the booked calls.
+            <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+              Every agent we build follows the same proven pipeline — custom-tuned to your brand voice and offer.
             </p>
           </BlurReveal>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connecting line for desktop */}
-          <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-white/20" />
-          
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
-            <div key={idx} className="relative z-10 flex flex-col items-center text-center">
-              <motion.div 
-                initial={{ backgroundColor: "rgba(255, 255, 255, 0.5)", borderColor: "rgba(17, 28, 13, 0.2)", color: "#1C3418" }}
-                whileInView={{ backgroundColor: "#1C3418", borderColor: "rgba(255, 255, 255, 0.2)", color: "#ffffff" }}
-                viewport={{ margin: "-20%" }}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="w-24 h-24 border-8 rounded-full flex items-center justify-center font-serif text-2xl mb-6 shadow-sm"
-              >
-                {step.number}
-              </motion.div>
-              <BlurReveal delay={0.2 + idx * 0.1}>
-                <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-white/80 leading-relaxed max-w-sm">
-                  {step.description}
-                </p>
+            <div key={idx}>
+              <BlurReveal delay={idx * 0.1}>
+                <div className="h-full p-8 rounded-3xl border border-slate-100 bg-slate-50/50 flex flex-col hover:border-[#7c5cff]/30 hover:bg-white transition-all group">
+                  <div className="flex items-center gap-4 mb-6">
+                    <span className="font-mono text-sm font-bold text-[#7c5cff]">{step.n}</span>
+                    <div className="h-px flex-1 bg-slate-200 group-hover:bg-[#7c5cff]/20 transition-colors" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{step.title}</h3>
+                  <p className="text-slate-500 leading-relaxed mb-8 flex-1">
+                    {step.body}
+                  </p>
+                  <div className="mt-auto py-3 px-4 rounded-xl border border-dashed border-slate-200 bg-white font-mono text-[10px] text-slate-400">
+                    {step.detail}
+                  </div>
+                </div>
               </BlurReveal>
             </div>
           ))}

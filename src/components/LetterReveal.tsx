@@ -1,7 +1,15 @@
 import { motion } from "motion/react";
 import React from "react";
 
-export function LetterReveal({ children, className = "" }: { children: string; className?: string }) {
+export function LetterReveal({
+  children,
+  className = "",
+  delay = 0
+}: {
+  children: string;
+  className?: string;
+  delay?: number
+}) {
   const letters = children.split("");
 
   return (
@@ -12,7 +20,7 @@ export function LetterReveal({ children, className = "" }: { children: string; c
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ margin: "-10%" }}
-          transition={{ duration: 0.5, delay: i * 0.03, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: delay + i * 0.03, ease: "easeOut" }}
           className="inline-block"
         >
           {letter === " " ? "\u00A0" : letter}

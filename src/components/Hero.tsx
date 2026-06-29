@@ -1,63 +1,108 @@
 import { Button } from "./ui/Button";
-import { CustomBadgeCheck } from "./icons/CustomBadgeCheck";
 import { LetterReveal } from "./LetterReveal";
 import { BlurReveal } from "./BlurReveal";
+import { IGPhone } from "./IGPhone";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center py-20 px-2 sm:px-4">
-      {/* Background Image & Overlay */}
-      <div className="absolute inset-2 sm:inset-4 z-0 rounded-[2rem] sm:rounded-[3rem] overflow-hidden">
-        <video 
-          src="/hero-background.mp4" 
-          poster="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832&auto=format&fit=crop"
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-full object-cover" 
-        />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
-      </div>
+    <section className="relative min-h-[100dvh] flex items-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white border-b border-slate-100">
+      {/* Background Grid */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
+           style={{ backgroundImage: 'radial-gradient(#7c5cff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center mt-12">
-        {/* Social Proof Badge */}
-        <BlurReveal delay={0.1}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-white/10 backdrop-blur-md mb-8 shadow-sm">
-            <div className="flex text-blue-400">
-              <CustomBadgeCheck className="w-5 h-5" />
+      <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
+        <div>
+          {/* Badge */}
+          <BlurReveal delay={0.1}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-100 mb-8 shadow-sm group">
+              <span className="bg-[#7c5cff] text-white px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase">NEW</span>
+              <span className="text-slate-600 text-xs font-medium">Now booking Q3 clients · 2 spots left</span>
             </div>
-            <span className="text-white text-sm font-medium drop-shadow-sm">Trusted by 40+ Top Personal Brands</span>
-          </div>
-        </BlurReveal>
+          </BlurReveal>
 
-        {/* Main Headline */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl text-white leading-[1.1] mb-6 max-w-4xl mx-auto drop-shadow-xl">
-          <LetterReveal>Turn Flooded DMs Into Booked Calls.</LetterReveal> <br className="hidden md:block" />
-          <LetterReveal className="text-[#a5b89f] drop-shadow-md">While You Sleep.</LetterReveal>
-        </h1>
+          {/* Main Headline */}
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl text-slate-900 leading-[1.05] mb-8 tracking-tight">
+            <LetterReveal>Book 30+ sales calls</LetterReveal><br />
+            <LetterReveal delay={0.3}>a month from your</LetterReveal><br />
+            <LetterReveal delay={0.6}>Instagram DMs.</LetterReveal><br />
+            <span className="text-slate-400">
+              <LetterReveal delay={0.9}>On autopilot.</LetterReveal>
+            </span>
+          </h1>
 
-        {/* Sub-headline */}
-        <BlurReveal delay={0.3}>
-          <p className="text-lg sm:text-xl text-slate-100 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
-            Stop losing high-ticket clients in the chaos of your inbox. We build custom AI agents that diagnose needs, qualify leads, and secure bookings 24/7—without the sick days or overhead of a VA.
-          </p>
-        </BlurReveal>
+          {/* Sub-headline */}
+          <BlurReveal delay={1.2}>
+            <p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed">
+              Sharnga builds custom AI agents that respond to every Instagram DM in your voice, qualify leads, and book them straight to your calendar — while you sleep.
+            </p>
+          </BlurReveal>
 
-        {/* CTA */}
-        <BlurReveal delay={0.4}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="#discovery-call">
-              <Button variant="glass" size="lg" className="relative overflow-hidden group rounded-full text-lg px-0 h-14 transition-all duration-300 border-0 p-[2px]">
-                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(255,255,255,0.8)_0%,rgba(255,255,255,0)_50%,rgba(255,255,255,0.8)_100%)]" />
-                <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-white/90 backdrop-blur-md px-8 text-slate-900 font-semibold group-hover:bg-white transition-colors">
-                  Book Your Strategy Call
-                </span>
+          {/* CTA */}
+          <BlurReveal delay={1.4}>
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <a href="#discovery-call">
+                <Button size="lg" className="rounded-full bg-slate-900 text-white hover:bg-slate-800 px-8 h-14 text-base font-bold shadow-xl shadow-slate-200">
+                  Book a strategy call →
+                </Button>
+              </a>
+              <Button variant="outline" size="lg" className="rounded-full border-slate-200 text-slate-600 hover:bg-slate-50 px-8 h-14 text-base font-bold">
+                See a live demo
               </Button>
-            </a>
+            </div>
+          </BlurReveal>
+
+          {/* Stats */}
+          <BlurReveal delay={1.6}>
+            <div className="flex flex-wrap gap-x-12 gap-y-6">
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-slate-900 tracking-tight">50+</span>
+                <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold mt-1">calls booked in week 1</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-slate-900 tracking-tight">&lt; 60s</span>
+                <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold mt-1">avg response time</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-slate-900 tracking-tight">24/7</span>
+                <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold mt-1">always replying</span>
+              </div>
+            </div>
+          </BlurReveal>
+        </div>
+
+        <div className="relative flex justify-center items-center">
+          {/* Floating Badges */}
+          <div className="absolute top-10 -left-4 z-20 animate-bounce transition-all duration-1000" style={{ animationDuration: '3s' }}>
+            <div className="bg-white/90 backdrop-blur-md border border-slate-100 rounded-full px-4 py-2 shadow-xl shadow-slate-200/50 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]" />
+              <span className="text-xs font-bold text-slate-900">Replied in 12s</span>
+            </div>
           </div>
-        </BlurReveal>
+
+          <div className="absolute bottom-20 -right-4 z-20 animate-bounce transition-all duration-1000" style={{ animationDuration: '4s', animationDelay: '0.5s' }}>
+            <div className="bg-white/90 backdrop-blur-md border border-slate-100 rounded-full px-4 py-2 shadow-xl shadow-slate-200/50 flex items-center gap-2">
+              <span className="text-xs font-bold text-slate-900">📅 Call booked · Thu 2pm</span>
+            </div>
+          </div>
+
+          <div className="relative transform lg:rotate-[2deg] hover:rotate-0 transition-transform duration-500">
+            <IGPhone
+              messages={[
+                { from: "lead", text: "hey! saw your post on the 12-week program 👀" },
+                { from: "lead", text: "is it still open?" },
+                { from: "agent", text: "hey! yes — couple spots left for july 💪" },
+                { from: "agent", text: "quick q: are you training already or starting fresh?" },
+                { from: "lead", text: "training but stuck for 6 months" },
+                { from: "agent", text: "totally get it. want to jump on a quick call thurs 2pm to map it out?" },
+                { from: "lead", text: "yes please" },
+                { from: "agent", text: "booked ✅ check your email 🙌" },
+              ]}
+              headerName="ava.rivers"
+              headerSub="AI replying · in your voice"
+              scale={1}
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

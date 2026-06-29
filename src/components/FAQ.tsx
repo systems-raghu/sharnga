@@ -1,45 +1,58 @@
-import { GreenTexturedBackground } from "./GreenTexturedBackground";
 import { LetterReveal } from "./LetterReveal";
 import { BlurReveal } from "./BlurReveal";
+import { useState } from "react";
 
 export function FAQ() {
-  const faqs = [
-    {
-      q: "What if the AI says the wrong thing?",
-      a: "Our agents operate within strict, pre-defined guardrails. We map out your exact FAQs and objection handling. If the AI encounters a completely unfamiliar scenario, it gracefully escalates the conversation for your manual review rather than guessing."
-    },
-    {
-      q: "Will Instagram ban my account for this?",
-      a: "Absolutely not. We utilize official Meta API integrations that comply 100% with Instagram's terms of service. This is secure, approved, and safe for your personal brand."
-    },
-    {
-      q: "How is this different from ManyChat or generic auto-responders?",
-      a: "Auto-responders are rigid decision trees that force users to type '1' or '2'. Our AI engages in natural, fluid conversation. It understands nuance, handles complex objections, and feels like a real human—specifically, you."
-    },
-    {
-      q: "What if I don't get enough DMs right now?",
-      a: "This system is built for personal brands who are currently experiencing a bottleneck. If you aren't yet generating enough lead flow to justify the system, we recommend focusing on top-of-funnel growth first before automating."
-    }
+  const [open, setOpen] = useState(0);
+  const items = [
+    { q: "Will it actually sound like me?",
+      a: "Yes. Before we go live we train the agent on hundreds of your past DMs, plus a discovery call where we capture your tone, slang, common objections, and offer language. The first week is a tuning sprint — we read every reply and refine until it's indistinguishable." },
+    { q: "Is this against Instagram's terms?",
+      a: "No. We use Meta's official Instagram Messaging API for business accounts. Nothing scrapes, nothing automates the official app, no risk of bans. We'll walk you through the one-time business setup on the onboarding call." },
+    { q: "What about complex / sensitive DMs?",
+      a: "Anything the agent isn't confident on gets escalated to a real human on our team in under 5 minutes — included in every plan above Starter. You'll never have a panicked client wondering why their refund question got a generic reply." },
+    { q: "How long does it take to launch?",
+      a: "10–14 days from kickoff. Week one is voice training + agent build. Week two is a soft launch on 10% of DMs while we tune. Full rollout once accuracy hits 95%." },
+    { q: "What if I already use Manychat / a setter?",
+      a: "We migrate your existing flows in week one. If you have a human setter, most clients keep them on for high-ticket closes — the agent handles top-of-funnel so your setter only sees pre-qualified, calendar-ready leads." },
+    { q: "What if it doesn't work?",
+      a: "30-day money-back guarantee on Growth and above. If we don't book you at least 15 qualified calls in your first month, you get every dollar back. We've never had to issue one." },
   ];
 
   return (
-    <section className="py-24 m-2 sm:m-4 rounded-[2rem] sm:rounded-[3rem] overflow-hidden relative">
-      <GreenTexturedBackground />
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
+      <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl sm:text-5xl text-white">
-            <LetterReveal>Common Questions</LetterReveal>
+          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
+            FAQ
+          </div>
+          <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
+            <LetterReveal>Questions, answered.</LetterReveal>
           </h2>
         </div>
 
-        <div className="space-y-8">
-          {faqs.map((faq, idx) => (
-            <BlurReveal key={idx} delay={0.1 * idx}>
-              <div className="border-b border-white/20 pb-8">
-                <h3 className="text-lg font-bold text-white mb-3">{faq.q}</h3>
-                <p className="text-white/80 leading-relaxed">{faq.a}</p>
-              </div>
-            </BlurReveal>
+        <div className="space-y-4">
+          {items.map((it, i) => (
+            <div key={i} className="border-b border-slate-100 last:border-0">
+              <button
+                onClick={() => setOpen(open === i ? -1 : i)}
+                className="w-full py-6 flex justify-between items-center text-left group"
+              >
+                <span className={`text-lg font-bold transition-colors ${open === i ? 'text-[#7c5cff]' : 'text-slate-900 group-hover:text-[#7c5cff]'}`}>
+                  {it.q}
+                </span>
+                <span className={`flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-all duration-300 ${open === i ? 'rotate-45 bg-[#7c5cff] border-[#7c5cff] text-white' : 'text-slate-400 group-hover:border-[#7c5cff] group-hover:text-[#7c5cff]'}`}>
+                  <span className="text-xl">+</span>
+                </span>
+              </button>
+              {open === i && (
+                <BlurReveal>
+                  <div className="pb-8 text-slate-600 leading-relaxed text-base">
+                    {it.a}
+                  </div>
+                </BlurReveal>
+              )}
+            </div>
           ))}
         </div>
       </div>
