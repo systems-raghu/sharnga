@@ -51,15 +51,12 @@ export function LiveDemo() {
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-14">
-          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
-            Live demo
-          </div>
+        <div className="mb-14 text-center">
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
             <LetterReveal>See it actually talk.</LetterReveal>
           </h2>
           <BlurReveal delay={0.2}>
-            <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Real conversation flows from agents we've shipped. Switch scenarios to see the agent adapt — same brand voice, different intents.
             </p>
           </BlurReveal>
@@ -74,7 +71,7 @@ export function LiveDemo() {
                 className={cn(
                   "text-left p-6 rounded-2xl border transition-all duration-300 flex items-center gap-5 group",
                   i === scenarioIdx
-                    ? "border-[#7c5cff] bg-white shadow-xl shadow-[#7c5cff]/5"
+                    ? "border-[#1C3418] bg-white shadow-xl shadow-[#1C3418]/5"
                     : "border-slate-200 bg-slate-50 hover:border-slate-300"
                 )}
               >
@@ -82,7 +79,7 @@ export function LiveDemo() {
                   className={cn(
                     "w-10 h-10 rounded-xl flex items-center justify-center font-mono text-sm font-bold transition-colors",
                     i === scenarioIdx
-                      ? "bg-[#7c5cff] text-white"
+                      ? "bg-[#1C3418] text-white"
                       : "bg-slate-200 text-slate-500 group-hover:bg-slate-300"
                   )}
                 >
@@ -98,7 +95,7 @@ export function LiveDemo() {
                   <div className="text-sm text-slate-400 mt-1">@{s.headerName}</div>
                 </div>
                 {i === scenarioIdx && (
-                  <div className="w-2 h-2 rounded-full bg-[#7c5cff] animate-pulse" />
+                  <div className="w-2 h-2 rounded-full bg-[#1C3418] animate-pulse" />
                 )}
               </button>
             ))}
@@ -120,10 +117,8 @@ export function LiveDemo() {
                 messages={scenario.msgs as any}
                 typing
                 scale={0.9}
+                theme="light"
               />
-              {/* Floating decoration */}
-              <div className="absolute -top-6 -right-6 w-12 h-12 bg-[#7c5cff] rounded-2xl blur-2xl opacity-20 animate-pulse" />
-              <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-[#7c5cff] rounded-2xl blur-2xl opacity-20 animate-pulse delay-700" />
             </div>
           </div>
         </div>

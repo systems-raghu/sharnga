@@ -37,13 +37,13 @@ export function IGPhone({
         width: 320 * scale,
         height: 640 * scale,
         borderRadius: 44 * scale,
-        background: "#0a0a0a",
+        background: isDark ? "#0a0a0a" : "#f5f5f5",
         padding: 10 * scale,
       }}
     >
       {/* Notch */}
       <div
-        className="absolute top-3.5 left-1/2 -translate-x-1/2 z-10 bg-black"
+        className={cn("absolute top-3.5 left-1/2 -translate-x-1/2 z-10", isDark ? "bg-black" : "bg-[#222]")}
         style={{
           width: 100 * scale,
           height: 28 * scale,
@@ -53,7 +53,7 @@ export function IGPhone({
 
       {/* Screen */}
       <div
-        className="w-full h-full overflow-hidden bg-white flex flex-col font-sans text-black"
+        className={cn("w-full h-full overflow-hidden flex flex-col font-sans", isDark ? "bg-black text-white" : "bg-white text-black")}
         style={{
           borderRadius: 36 * scale,
         }}
@@ -79,13 +79,13 @@ export function IGPhone({
 
         {/* DM Header */}
         <div
-          className="flex items-center border-b border-[#efefef]"
+          className={cn("flex items-center border-b", isDark ? "border-white/10" : "border-[#efefef]")}
           style={{
             gap: 10 * scale,
             padding: `${8 * scale}px ${14 * scale}px`,
           }}
         >
-          <div style={{ fontSize: 18 * scale, color: "#000" }}>‹</div>
+          <div style={{ fontSize: 18 * scale }}>‹</div>
           <div
             className="rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]"
             style={{
@@ -95,7 +95,7 @@ export function IGPhone({
             }}
           >
             <div
-              className="w-full h-full rounded-full bg-white flex items-center justify-center font-bold"
+              className={cn("w-full h-full rounded-full flex items-center justify-center font-bold", isDark ? "bg-black" : "bg-white")}
               style={{ fontSize: 14 * scale }}
             >
               {headerName[0].toUpperCase()}
@@ -103,7 +103,7 @@ export function IGPhone({
           </div>
           <div className="flex-1" style={{ lineHeight: 1.2 }}>
             <div className="font-semibold" style={{ fontSize: 14 * scale }}>{headerName}</div>
-            <div className="text-[#8e8e8e]" style={{ fontSize: 11 * scale }}>{headerSub}</div>
+            <div className={isDark ? "text-white/50" : "text-[#8e8e8e]"} style={{ fontSize: 11 * scale }}>{headerSub}</div>
           </div>
           <div style={{ fontSize: 16 * scale }}>📞</div>
           <div className="ml-2" style={{ fontSize: 16 * scale, marginLeft: 8 * scale }}>📹</div>
@@ -111,7 +111,7 @@ export function IGPhone({
 
         {/* Messages */}
         <div
-          className="flex-1 bg-white flex flex-col overflow-y-auto overflow-x-hidden p-3"
+          className={cn("flex-1 flex flex-col overflow-y-auto overflow-x-hidden p-3", isDark ? "bg-black" : "bg-white")}
           style={{
             padding: `${12 * scale}px ${12 * scale}px`,
             gap: 4 * scale,
@@ -124,12 +124,13 @@ export function IGPhone({
                 scale={scale}
                 prev={messages[i - 1]}
                 next={messages[i + 1]}
+                isDark={isDark}
               />
             </div>
           ))}
           {typing && (
             <div
-              className="self-start flex gap-1 bg-[#efefef]"
+              className={cn("self-start flex gap-1", isDark ? "bg-white/10" : "bg-[#efefef]")}
               style={{
                 padding: `${10 * scale}px ${14 * scale}px`,
                 borderRadius: 18 * scale,
@@ -150,7 +151,7 @@ export function IGPhone({
                     delay: i * 0.15,
                     ease: "easeInOut",
                   }}
-                  className="bg-[#999] rounded-full"
+                  className={isDark ? "bg-white/40" : "bg-[#999]"}
                   style={{
                     width: 6 * scale,
                     height: 6 * scale,
@@ -163,14 +164,14 @@ export function IGPhone({
 
         {/* Input Bar */}
         <div
-          className="border-t border-[#efefef] flex items-center"
+          className={cn("border-t flex items-center", isDark ? "border-white/10" : "border-[#efefef]")}
           style={{
             padding: `${8 * scale}px ${12 * scale}px ${14 * scale}px`,
             gap: 8 * scale,
           }}
         >
           <div
-            className="flex-1 bg-white border border-[#dbdbdb] flex items-center text-[#8e8e8e]"
+            className={cn("flex-1 border flex items-center", isDark ? "bg-white/5 border-white/10 text-white/40" : "bg-white border-[#dbdbdb] text-[#8e8e8e]")}
             style={{
               height: 36 * scale,
               borderRadius: 18 * scale,
@@ -193,9 +194,10 @@ interface DMBubbleProps extends Message {
   scale: number;
   prev?: Message;
   next?: Message;
+  isDark?: boolean;
 }
 
-function DMBubble({ from, text, scale, prev, next }: DMBubbleProps) {
+function DMBubble({ from, text, scale, prev, next, isDark }: DMBubbleProps) {
   const isAgent = from === "agent";
   const sameAsPrev = prev && prev.from === from;
   const sameAsNext = next && next.from === from;
@@ -208,7 +210,9 @@ function DMBubble({ from, text, scale, prev, next }: DMBubbleProps) {
       animate={{ opacity: 1, scale: 1, y: 0 }}
       className={cn(
         "max-w-[78%] leading-tight break-words",
-        isAgent ? "self-end bg-[#3797f0] text-white" : "self-start bg-[#efefef] text-black"
+        isAgent
+          ? "self-end bg-[#3797f0] text-white"
+          : cn("self-start", isDark ? "bg-white/10 text-white" : "bg-[#efefef] text-black")
       )}
       style={{
         padding: `${8 * scale}px ${13 * scale}px`,

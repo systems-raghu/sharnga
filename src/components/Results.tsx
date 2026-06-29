@@ -1,17 +1,11 @@
 import { LetterReveal } from "./LetterReveal";
 import { BlurReveal } from "./BlurReveal";
-import { cn } from "../lib/utils";
 
 export function Results() {
-  const accent = "#7c5cff"; // Default accent from design
-
   return (
     <section id="results" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-14">
-          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
-            Results
-          </div>
+        <div className="mb-14 text-center">
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
             <LetterReveal>One week. 50+ booked calls.</LetterReveal>
           </h2>
@@ -30,9 +24,9 @@ export function Results() {
 
             <div className="text-2xl sm:text-3xl leading-snug text-slate-900 font-medium mb-10">
               "I was burning out trying to keep up with DMs. Sharnga's agent booked{" "}
-              <span className="relative inline-block">
+              <span className="relative inline-block text-[#1C3418]">
                 <span className="relative z-10 font-bold">50+ discovery calls in the first 7 days</span>
-                <span className="absolute bottom-0 left-0 w-full h-3 bg-[#7c5cff]/10 -rotate-1" />
+                <span className="absolute bottom-0 left-0 w-full h-3 bg-[#1C3418]/10 -rotate-1" />
               </span>{" "}
               — and 11 of them turned into paying clients."
             </div>
@@ -72,7 +66,7 @@ function SmallCard({ title, before, after, delta }: { title: string; before: str
       <div className="p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
         <div className="flex justify-between items-start mb-4">
           <div className="text-sm font-medium text-slate-500">{title}</div>
-          <div className="text-[10px] font-bold text-[#7c5cff] px-2 py-1 rounded bg-[#7c5cff]/10 uppercase tracking-wider">
+          <div className="text-[10px] font-bold text-[#1C3418] px-2 py-1 rounded bg-[#1C3418]/10 uppercase tracking-wider">
             {delta}
           </div>
         </div>

@@ -1,77 +1,66 @@
 import { Check } from "lucide-react";
 import { LetterReveal } from "./LetterReveal";
 import { BlurReveal } from "./BlurReveal";
-import Cal, { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 import { cn } from "../lib/utils";
+import Cal from "@calcom/embed-react";
+
+const tiers = [
+  {
+    name: "Starter",
+    sub: "For creators just turning on DMs as a channel.",
+    price: "$1,500",
+    term: "/ month",
+    cta: "Start here",
+    features: [
+      "1 IG account · up to 5k DMs/mo",
+      "Agent trained on your voice",
+      "Calendly integration",
+      "Weekly performance report",
+      "Email support",
+    ],
+  },
+  {
+    name: "Growth",
+    sub: "For coaches & creators ready to scale to 30+ calls/mo.",
+    price: "$3,500",
+    term: "/ month",
+    featured: true,
+    cta: "Book a call",
+    features: [
+      "Up to 25k DMs/mo",
+      "Voice + objection playbooks",
+      "Human-in-the-loop on complex leads",
+      "Full CRM + Slack integration",
+      "Weekly optimization calls",
+      "Priority support · 4h SLA",
+    ],
+  },
+  {
+    name: "Scale",
+    sub: "Multi-brand operators and agencies.",
+    price: "Custom",
+    term: "",
+    cta: "Get a quote",
+    features: [
+      "Unlimited DMs · multi-account",
+      "Multiple custom agents",
+      "Dedicated strategist",
+      "Custom integrations",
+      "White-label option",
+    ],
+  },
+];
 
 export function Pricing() {
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({"namespace":"15min"});
-      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    })();
-  }, []);
-
-  const tiers = [
-    {
-      name: "Starter",
-      sub: "For creators just turning on DMs as a channel.",
-      price: "$1,500",
-      term: "/ month",
-      cta: "Start here",
-      features: [
-        "1 IG account · up to 5k DMs/mo",
-        "Agent trained on your voice",
-        "Calendly integration",
-        "Weekly performance report",
-        "Email support",
-      ],
-    },
-    {
-      name: "Growth",
-      sub: "For coaches & creators ready to scale to 30+ calls/mo.",
-      price: "$3,500",
-      term: "/ month",
-      featured: true,
-      cta: "Book a call",
-      features: [
-        "Up to 25k DMs/mo",
-        "Voice + objection playbooks",
-        "Human-in-the-loop on complex leads",
-        "Full CRM + Slack integration",
-        "Weekly optimization calls",
-        "Priority support · 4h SLA",
-      ],
-    },
-    {
-      name: "Scale",
-      sub: "Multi-brand operators and agencies.",
-      price: "Custom",
-      term: "",
-      cta: "Get a quote",
-      features: [
-        "Unlimited DMs · multi-account",
-        "Multiple custom agents",
-        "Dedicated strategist",
-        "Custom integrations",
-        "White-label option",
-      ],
-    },
-  ];
-
   return (
-    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200">
+    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-100">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
-            Pricing
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
-            <LetterReveal>Done-for-you. No setup, no contracts.</LetterReveal>
+            <LetterReveal>Done-for-you. No contracts.</LetterReveal>
           </h2>
           <BlurReveal delay={0.2}>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-600 leading-relaxed">
               One flat fee covers training, deployment, optimization, and your human escalation team. 30-day money-back if we don't book at least 15 calls in month one.
             </p>
           </BlurReveal>
@@ -82,16 +71,16 @@ export function Pricing() {
             <div key={i}>
               <BlurReveal delay={i * 0.1}>
                 <div className={cn(
-                  "h-full p-10 rounded-3xl border bg-white flex flex-col relative transition-all duration-300",
-                  t.featured ? "border-[#7c5cff] shadow-2xl shadow-[#7c5cff]/10 scale-105 z-10" : "border-slate-100 shadow-sm"
+                  "h-full p-8 rounded-3xl border bg-white flex flex-col relative transition-all duration-300",
+                  t.featured ? "border-[#1C3418] shadow-2xl shadow-[#1C3418]/10 scale-105 z-10" : "border-slate-100 shadow-sm"
                 )}>
                   {t.featured && (
-                    <div className="absolute top-0 right-10 -translate-y-1/2 bg-[#7c5cff] text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
+                    <div className="absolute top-0 right-8 -translate-y-1/2 bg-[#1C3418] text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
                       Most Popular
                     </div>
                   )}
 
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <h3 className="text-xl font-bold text-slate-900 mb-2">{t.name}</h3>
                     <p className="text-sm text-slate-500 leading-relaxed h-10">{t.sub}</p>
                   </div>
@@ -104,7 +93,7 @@ export function Pricing() {
                   <button className={cn(
                     "w-full py-4 rounded-2xl font-bold text-sm mb-10 transition-all",
                     t.featured
-                      ? "bg-[#7c5cff] text-white hover:bg-[#6c4be0] shadow-lg shadow-[#7c5cff]/20"
+                      ? "bg-[#1C3418] text-white hover:bg-[#122210] shadow-lg shadow-[#1C3418]/20"
                       : "bg-slate-50 text-slate-900 hover:bg-slate-100 border border-slate-200"
                   )}>
                     {t.cta} →
@@ -113,8 +102,8 @@ export function Pricing() {
                   <div className="space-y-4 flex-1">
                     {t.features.map((f, j) => (
                       <div key={j} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-[#7c5cff]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 text-[#7c5cff]" />
+                        <div className="w-5 h-5 rounded-full bg-[#1C3418]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-[#1C3418]" />
                         </div>
                         <span className="text-sm text-slate-600 leading-tight">{f}</span>
                       </div>

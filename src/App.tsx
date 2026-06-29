@@ -8,8 +8,10 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { LoadingFallback } from "./components/LoadingFallback";
 
-// New design sections
+const PainSection = React.lazy(() => import("./components/PainSection").then(m => ({ default: m.PainSection })));
+const WallOfLove = React.lazy(() => import("./components/WallOfLove").then(m => ({ default: m.WallOfLove })));
 const TrustStrip = React.lazy(() => import("./components/TrustStrip").then(m => ({ default: m.TrustStrip })));
+const ValueProps = React.lazy(() => import("./components/ValueProps").then(m => ({ default: m.ValueProps })));
 const HowItWorks = React.lazy(() => import("./components/HowItWorks").then(m => ({ default: m.HowItWorks })));
 const LiveDemo = React.lazy(() => import("./components/LiveDemo").then(m => ({ default: m.LiveDemo })));
 const Results = React.lazy(() => import("./components/Results").then(m => ({ default: m.Results })));
@@ -19,11 +21,6 @@ const Pricing = React.lazy(() => import("./components/Pricing").then(m => ({ def
 const FAQ = React.lazy(() => import("./components/FAQ").then(m => ({ default: m.FAQ })));
 const Footer = React.lazy(() => import("./components/Footer").then(m => ({ default: m.Footer })));
 
-// Removed or replaced sections:
-// - PainSection
-// - WallOfLove
-// - ValueProps
-
 export default function App() {
   return (
     <div className="min-h-screen bg-white">
@@ -32,6 +29,9 @@ export default function App() {
         <Hero />
         <Suspense fallback={<LoadingFallback />}>
           <TrustStrip />
+          <PainSection />
+          <WallOfLove />
+          <ValueProps />
           <HowItWorks />
           <LiveDemo />
           <Results />

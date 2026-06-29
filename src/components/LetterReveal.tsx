@@ -13,14 +13,14 @@ export function LetterReveal({
   const letters = children.split("");
 
   return (
-    <span className={`inline-block whitespace-pre-wrap ${className}`}>
+    <span className={`inline-block whitespace-pre-wrap max-w-full ${className}`}>
       {letters.map((letter, i) => (
         <motion.span
           key={i}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ margin: "-10%" }}
-          transition={{ duration: 0.5, delay: delay + i * 0.03, ease: "easeOut" }}
+          viewport={{ margin: "0px", once: true }}
+          transition={{ duration: 0.4, delay: delay + i * 0.02, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="inline-block"
         >
           {letter === " " ? "\u00A0" : letter}
