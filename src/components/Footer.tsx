@@ -18,7 +18,11 @@ export function Footer() {
           <span className="font-serif text-2xl font-bold text-slate-900">Sharnga</span>
           <p className="text-sm mt-2 font-medium">© {new Date().getFullYear()} Sharnga. All rights reserved.</p>
         </div>
-        <div className="flex gap-6 text-sm">
+        <div className="flex flex-wrap justify-center gap-6 text-sm mt-4 md:mt-0">
+          <a href="#demo" className="hover:text-slate-900 transition-colors font-medium">Live Demo</a>
+          <a href="#results" className="hover:text-slate-900 transition-colors font-medium">Results</a>
+          <a href="#pricing" className="hover:text-slate-900 transition-colors font-medium">Pricing</a>
+          <a href="#faq" className="hover:text-slate-900 transition-colors font-medium">FAQ</a>
           <a href="#" className="hover:text-slate-900 transition-colors font-medium">Privacy Policy</a>
           <a href="#" className="hover:text-slate-900 transition-colors font-medium">Terms of Service</a>
         </div>

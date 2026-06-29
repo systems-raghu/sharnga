@@ -3,7 +3,7 @@ import { BlurReveal } from "./BlurReveal";
 
 export function Results() {
   return (
-    <section id="results" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
+    <section id="results" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100 scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="mb-14 text-center">
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
@@ -41,9 +41,9 @@ export function Results() {
 
           {/* Side Stats */}
           <div className="flex flex-col gap-4">
-            <SmallCard title="Avg. response time" before="4h 22m" after="48 seconds" delta="−99%" />
-            <SmallCard title="DMs handled / week" before="120 (by you)" after="2,400 (by agent)" delta="20×" />
-            <SmallCard title="Show-up rate" before="42%" after="78%" delta="+36pt" />
+            <SmallCard title="Avg. response time" before="4h 22m" after="48 seconds" delta="−99%" delay={0.1} />
+            <SmallCard title="DMs handled / week" before="120 (by you)" after="2,400 (by agent)" delta="20×" delay={0.2} />
+            <SmallCard title="Show-up rate" before="42%" after="78%" delta="+36pt" delay={0.3} />
           </div>
         </div>
       </div>
@@ -60,9 +60,9 @@ function BigStat({ num, label }: { num: string; label: string }) {
   );
 }
 
-function SmallCard({ title, before, after, delta }: { title: string; before: string; after: string; delta: string }) {
+function SmallCard({ title, before, after, delta, delay = 0 }: { title: string; before: string; after: string; delta: string; delay?: number }) {
   return (
-    <BlurReveal>
+    <BlurReveal delay={delay}>
       <div className="p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
         <div className="flex justify-between items-start mb-4">
           <div className="text-sm font-medium text-slate-500">{title}</div>

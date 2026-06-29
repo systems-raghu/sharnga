@@ -67,9 +67,11 @@ export function Hero() {
                   </span>
                 </Button>
               </a>
-              <Button variant="dark-glass" size="lg" className="rounded-full text-lg px-8 h-14">
-                See a live demo
-              </Button>
+              <a href="#demo">
+                <Button variant="dark-glass" size="lg" className="rounded-full text-lg px-8 h-14">
+                  See a live demo
+                </Button>
+              </a>
             </div>
           </BlurReveal>
 

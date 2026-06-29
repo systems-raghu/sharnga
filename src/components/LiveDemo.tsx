@@ -49,7 +49,7 @@ export function LiveDemo() {
   const scenario = scenarios[scenarioIdx];
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200 overflow-hidden">
+    <section id="demo" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200 overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="mb-14 text-center">
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">

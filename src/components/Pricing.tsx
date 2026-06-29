@@ -53,7 +53,7 @@ const tiers = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-100">
+    <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-100 scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
@@ -90,14 +90,16 @@ export function Pricing() {
                     <span className="text-slate-400 font-medium">{t.term}</span>
                   </div>
 
-                  <button className={cn(
-                    "w-full py-4 rounded-2xl font-bold text-sm mb-10 transition-all",
-                    t.featured
-                      ? "bg-[#1C3418] text-white hover:bg-[#122210] shadow-lg shadow-[#1C3418]/20"
-                      : "bg-slate-50 text-slate-900 hover:bg-slate-100 border border-slate-200"
-                  )}>
-                    {t.cta} →
-                  </button>
+                  <a href="#discovery-call" className="w-full">
+                    <button className={cn(
+                      "w-full py-4 rounded-2xl font-bold text-sm mb-10 transition-all cursor-pointer",
+                      t.featured
+                        ? "bg-[#1C3418] text-white hover:bg-[#122210] shadow-lg shadow-[#1C3418]/20"
+                        : "bg-slate-50 text-slate-900 hover:bg-slate-100 border border-slate-200"
+                    )}>
+                      {t.cta} →
+                    </button>
+                  </a>
 
                   <div className="space-y-4 flex-1">
                     {t.features.map((f, j) => (
