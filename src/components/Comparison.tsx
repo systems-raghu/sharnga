@@ -16,7 +16,7 @@ export function Comparison() {
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
+          <div className="text-xs text-[#293A22] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
             The honest comparison
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
@@ -32,7 +32,7 @@ export function Comparison() {
                   <th className="p-5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Feature</th>
                   <th className="p-5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Human Setter</th>
                   <th className="p-5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Generic Chatbot</th>
-                  <th className="p-5 text-[10px] font-bold text-[#7c5cff] uppercase tracking-widest bg-[#7c5cff]/5">Sharnga Agent</th>
+                  <th className="p-5 text-[10px] font-bold text-[#293A22] uppercase tracking-widest bg-[#293A22]/5">Sharnga Agent</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,9 +41,9 @@ export function Comparison() {
                     <td className="p-5 text-sm font-semibold text-slate-600">{row[0]}</td>
                     <td className="p-5 text-sm text-slate-500">{row[1]}</td>
                     <td className="p-5 text-sm text-slate-500">{row[2]}</td>
-                    <td className="p-5 text-sm font-medium text-slate-900 bg-[#7c5cff]/[0.02]">
+                    <td className="p-5 text-sm font-medium text-slate-900 bg-[#293A22]/[0.02]">
                       <div className="flex items-center gap-2">
-                        <span className="flex-shrink-0 w-4 h-4 rounded-full bg-[#7c5cff] flex items-center justify-center text-[10px] text-white font-bold">
+                        <span className="flex-shrink-0 w-4 h-4 rounded-full bg-[#293A22] flex items-center justify-center text-[10px] text-white font-bold">
                           ✓
                         </span>
                         {row[3]}

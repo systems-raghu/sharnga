@@ -33,7 +33,7 @@ export function HowItWorks() {
     <section id="how" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
+          <div className="text-xs text-[#293A22] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
             How it works
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
@@ -50,10 +50,10 @@ export function HowItWorks() {
           {steps.map((step, idx) => (
             <div key={idx}>
               <BlurReveal delay={idx * 0.1}>
-                <div className="h-full p-8 rounded-3xl border border-slate-100 bg-slate-50/50 flex flex-col hover:border-[#7c5cff]/30 hover:bg-white transition-all group">
+                <div className="h-full p-8 rounded-3xl border border-slate-100 bg-slate-50/50 flex flex-col hover:border-[#293A22]/30 hover:bg-white transition-all group">
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="font-mono text-sm font-bold text-[#7c5cff]">{step.n}</span>
-                    <div className="h-px flex-1 bg-slate-200 group-hover:bg-[#7c5cff]/20 transition-colors" />
+                    <span className="font-mono text-sm font-bold text-[#293A22]">{step.n}</span>
+                    <div className="h-px flex-1 bg-slate-200 group-hover:bg-[#293A22]/20 transition-colors" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{step.title}</h3>
                   <p className="text-slate-500 leading-relaxed mb-8 flex-1">

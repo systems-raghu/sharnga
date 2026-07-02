@@ -8,14 +8,14 @@ export function Hero() {
     <section className="relative min-h-[100dvh] flex items-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white border-b border-slate-100">
       {/* Background Grid */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]"
-           style={{ backgroundImage: 'radial-gradient(#7c5cff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+           style={{ backgroundImage: 'radial-gradient(#293A22 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
         <div>
           {/* Badge */}
           <BlurReveal delay={0.1}>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-100 mb-8 shadow-sm group">
-              <span className="bg-[#7c5cff] text-white px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase">LAUNCH</span>
+              <span className="bg-[#293A22] text-white px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase">LAUNCH</span>
               <span className="text-slate-600 text-xs font-medium">Currently onboarding the first 3 founding clients</span>
             </div>
           </BlurReveal>

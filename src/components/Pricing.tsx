@@ -64,7 +64,7 @@ export function Pricing() {
     <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
+          <div className="text-xs text-[#293A22] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
             Pricing
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
@@ -89,10 +89,10 @@ export function Pricing() {
               <BlurReveal delay={i * 0.1}>
                 <div className={cn(
                   "h-full p-10 rounded-3xl border bg-white flex flex-col relative transition-all duration-300",
-                  t.featured ? "border-[#7c5cff] shadow-2xl shadow-[#7c5cff]/10 scale-105 z-10" : "border-slate-100 shadow-sm"
+                  t.featured ? "border-[#293A22] shadow-2xl shadow-[#293A22]/10 scale-105 z-10" : "border-slate-100 shadow-sm"
                 )}>
                   {t.featured && (
-                    <div className="absolute top-0 right-10 -translate-y-1/2 bg-[#7c5cff] text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
+                    <div className="absolute top-0 right-10 -translate-y-1/2 bg-[#293A22] text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
                       Most Popular
                     </div>
                   )}
@@ -110,7 +110,7 @@ export function Pricing() {
                   <button className={cn(
                     "w-full py-4 rounded-2xl font-bold text-sm mb-10 transition-all",
                     t.featured
-                      ? "bg-[#7c5cff] text-white hover:bg-[#6c4be0] shadow-lg shadow-[#7c5cff]/20"
+                      ? "bg-[#293A22] text-white hover:bg-[#1d2a18] shadow-lg shadow-[#293A22]/20"
                       : "bg-slate-50 text-slate-900 hover:bg-slate-100 border border-slate-200"
                   )}>
                     {t.cta} →
@@ -119,8 +119,8 @@ export function Pricing() {
                   <div className="space-y-4 flex-1">
                     {t.features.map((f, j) => (
                       <div key={j} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-[#7c5cff]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 text-[#7c5cff]" />
+                        <div className="w-5 h-5 rounded-full bg-[#293A22]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-[#293A22]" />
                         </div>
                         <span className="text-sm text-slate-600 leading-tight">{f}</span>
                       </div>

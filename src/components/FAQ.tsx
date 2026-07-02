@@ -23,7 +23,7 @@ export function FAQ() {
     <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
+          <div className="text-xs text-[#293A22] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
             FAQ
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
@@ -38,10 +38,10 @@ export function FAQ() {
                 onClick={() => setOpen(open === i ? -1 : i)}
                 className="w-full py-6 flex justify-between items-center text-left group"
               >
-                <span className={`text-lg font-bold transition-colors ${open === i ? 'text-[#7c5cff]' : 'text-slate-900 group-hover:text-[#7c5cff]'}`}>
+                <span className={`text-lg font-bold transition-colors ${open === i ? 'text-[#293A22]' : 'text-slate-900 group-hover:text-[#293A22]'}`}>
                   {it.q}
                 </span>
-                <span className={`flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-all duration-300 ${open === i ? 'rotate-45 bg-[#7c5cff] border-[#7c5cff] text-white' : 'text-slate-400 group-hover:border-[#7c5cff] group-hover:text-[#7c5cff]'}`}>
+                <span className={`flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-all duration-300 ${open === i ? 'rotate-45 bg-[#293A22] border-[#293A22] text-white' : 'text-slate-400 group-hover:border-[#293A22] group-hover:text-[#293A22]'}`}>
                   <span className="text-xl">+</span>
                 </span>
               </button>
