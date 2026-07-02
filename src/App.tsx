@@ -9,15 +9,15 @@ import { Hero } from "./components/Hero";
 import { LoadingFallback } from "./components/LoadingFallback";
 
 // New design sections
-const TrustStrip = React.lazy(() => import("./components/TrustStrip").then(m => ({ default: m.TrustStrip })));
-const HowItWorks = React.lazy(() => import("./components/HowItWorks").then(m => ({ default: m.HowItWorks })));
-const LiveDemo = React.lazy(() => import("./components/LiveDemo").then(m => ({ default: m.LiveDemo })));
-const Results = React.lazy(() => import("./components/Results").then(m => ({ default: m.Results })));
-const Comparison = React.lazy(() => import("./components/Comparison").then(m => ({ default: m.Comparison })));
-const Integrations = React.lazy(() => import("./components/Integrations").then(m => ({ default: m.Integrations })));
-const Pricing = React.lazy(() => import("./components/Pricing").then(m => ({ default: m.Pricing })));
-const FAQ = React.lazy(() => import("./components/FAQ").then(m => ({ default: m.FAQ })));
-const Footer = React.lazy(() => import("./components/Footer").then(m => ({ default: m.Footer })));
+import { TrustStrip } from "./components/TrustStrip";
+import { HowItWorks } from "./components/HowItWorks";
+import { LiveDemo } from "./components/LiveDemo";
+import { Results } from "./components/Results";
+import { Comparison } from "./components/Comparison";
+import { Integrations } from "./components/Integrations";
+import { Pricing } from "./components/Pricing";
+import { FAQ } from "./components/FAQ";
+import { Footer } from "./components/Footer";
 
 // Removed or replaced sections:
 // - PainSection
@@ -30,20 +30,16 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Suspense fallback={<LoadingFallback />}>
-          <TrustStrip />
-          <HowItWorks />
-          <LiveDemo />
-          <Results />
-          <Comparison />
-          <Integrations />
-          <Pricing />
-          <FAQ />
-        </Suspense>
+        <TrustStrip />
+        <HowItWorks />
+        <LiveDemo />
+        <Results />
+        <Comparison />
+        <Integrations />
+        <Pricing />
+        <FAQ />
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 }

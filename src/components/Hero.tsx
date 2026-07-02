@@ -15,8 +15,8 @@ export function Hero() {
           {/* Badge */}
           <BlurReveal delay={0.1}>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-100 mb-8 shadow-sm group">
-              <span className="bg-[#7c5cff] text-white px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase">NEW</span>
-              <span className="text-slate-600 text-xs font-medium">Now booking Q3 clients · 2 spots left</span>
+              <span className="bg-[#7c5cff] text-white px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase">LAUNCH</span>
+              <span className="text-slate-600 text-xs font-medium">Currently onboarding the first 3 founding clients</span>
             </div>
           </BlurReveal>
 
@@ -55,8 +55,8 @@ export function Hero() {
           <BlurReveal delay={1.6}>
             <div className="flex flex-wrap gap-x-12 gap-y-6">
               <div className="flex flex-col">
-                <span className="text-2xl font-bold text-slate-900 tracking-tight">50+</span>
-                <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold mt-1">calls booked in week 1</span>
+                <span className="text-2xl font-bold text-slate-900 tracking-tight">30+</span>
+                <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold mt-1">target calls / month</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-2xl font-bold text-slate-900 tracking-tight">&lt; 60s</span>

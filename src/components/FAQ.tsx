@@ -45,13 +45,11 @@ export function FAQ() {
                   <span className="text-xl">+</span>
                 </span>
               </button>
-              {open === i && (
-                <BlurReveal>
-                  <div className="pb-8 text-slate-600 leading-relaxed text-base">
-                    {it.a}
-                  </div>
-                </BlurReveal>
-              )}
+              <div className={`overflow-hidden transition-all duration-300 ${open === i ? 'max-h-96' : 'max-h-0'}`}>
+                <div className="pb-8 text-slate-600 leading-relaxed text-base">
+                  {it.a}
+                </div>
+              </div>
             </div>
           ))}
         </div>

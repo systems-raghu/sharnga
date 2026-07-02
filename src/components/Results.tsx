@@ -8,48 +8,56 @@ export function Results() {
   return (
     <section id="results" className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-14">
+        <div className="mb-14 text-center lg:text-left">
           <div className="text-xs text-[#7c5cff] tracking-[0.15em] uppercase font-bold mb-4 font-mono">
-            Results
+            Performance
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl text-slate-900 mb-6">
-            <LetterReveal>One week. 50+ booked calls.</LetterReveal>
+            <LetterReveal>Built for high-volume conversion.</LetterReveal>
           </h2>
+          <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+            Sharnga isn't just about automation — it's about shifting your response time from hours to seconds and capturing every lead before they lose interest.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8">
-          {/* Hero Case */}
+          {/* Hero Case - Replaced with illustrative benefit */}
           <div className="p-8 sm:p-10 rounded-3xl border border-slate-100 bg-slate-50/50 relative overflow-hidden group">
             <div className="flex gap-4 items-center mb-8">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" />
+              <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
+                <span className="text-xl">✨</span>
+              </div>
               <div>
-                <div className="text-base font-semibold text-slate-900">@coach.jay.fitness</div>
-                <div className="text-sm text-slate-500">Online fitness coach · 84k followers</div>
+                <div className="text-base font-semibold text-slate-900">Founding Partner Benefit</div>
+                <div className="text-sm text-slate-500">Illustrative Performance Target</div>
               </div>
             </div>
 
             <div className="text-2xl sm:text-3xl leading-snug text-slate-900 font-medium mb-10">
-              "I was burning out trying to keep up with DMs. Sharnga's agent booked{" "}
+              Our goal is to help you book{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 font-bold">50+ discovery calls in the first 7 days</span>
+                <span className="relative z-10 font-bold">30+ discovery calls every single month</span>
                 <span className="absolute bottom-0 left-0 w-full h-3 bg-[#7c5cff]/10 -rotate-1" />
               </span>{" "}
-              — and 11 of them turned into paying clients."
+              without you ever opening the Instagram app.
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-8 border-t border-slate-200">
-              <BigStat num="50+" label="calls booked / wk 1" />
-              <BigStat num="11" label="new clients closed" />
-              <BigStat num="$47k" label="cash collected" />
-              <BigStat num="6×" label="response rate" />
+              <BigStat num="30+" label="target calls / mo" />
+              <BigStat num="24/7" label="coverage" />
+              <BigStat num="< 60s" label="response time" />
+              <BigStat num="100%" label="lead capture" />
             </div>
           </div>
 
           {/* Side Stats */}
           <div className="flex flex-col gap-4">
+            <div className="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-2 px-1">
+              Expected efficiency gains
+            </div>
             <SmallCard title="Avg. response time" before="4h 22m" after="48 seconds" delta="−99%" />
-            <SmallCard title="DMs handled / week" before="120 (by you)" after="2,400 (by agent)" delta="20×" />
-            <SmallCard title="Show-up rate" before="42%" after="78%" delta="+36pt" />
+            <SmallCard title="DMs handled / week" before="120 (manual)" after="2,400+ (agent)" delta="20×" />
+            <SmallCard title="Lead qualification" before="Manual" after="Automated" delta="+100%" />
           </div>
         </div>
       </div>
